@@ -5,16 +5,20 @@ const setup = () => {
   $(".card").click(function() {
     $(this).toggleClass("flip");
     if (!firstCard) {
-      firstCard = $(this).find(".front_face")[0];
+      firstCard = {};
+      firstCard.img = $(this).find(".front_face")[0];
+      firstCard.cardID = $(this).attr("id");
     } else {
-      secondCard = $(this).find(".front_face")[0];
-      if (firstCard.src === secondCard.src) {
+      secondCard = {};
+      secondCard.img = $(this).find(".front_face")[0];
+      secondCard.cardID = $(this).attr("id");
+      if (firstCard.img.src === secondCard.img.src) {
         $(firstCard).parent().off("click");
         $(secondCard).parent().off("click");
       } else {
         setTimeout(() => {
-          $(firstCard).parent().toggleClass("flip");
-          $(secondCard).parent().toggleClass("flip");
+          $(`#(firstCard.cardID)`).toggleClass("flip");
+          $(`#(secondCard.cardID)`).toggleClass("flip");
         }, 1000);
       }
       firstCard = null;
