@@ -1,0 +1,36 @@
+#game_grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 400px;
+  border: 2px tomato solid;
+  margin: auto;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition-property: all;
+  transition-duration: 1s;
+  backface-visibility: hidden;
+}
+
+img {
+  width: 100%;
+  /* height: 100%;
+  object-fit: cover; */
+}
+
+.frontface, .back_face {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+
+.flip {
+  transform: rotateY(180deg);
+}
