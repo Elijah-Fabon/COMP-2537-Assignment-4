@@ -178,6 +178,16 @@ const setup = () => {
         console.log(firstCard);
         console.log(secondCard);
       }
+      if (firstCard && secondCard) {
+        setTimeout(function () {
+            firstCard = null;
+            firstImg = null;
+            firstCardID = null;
+            secondCard = null;
+            secondImg = null;
+            secondCardID = null;
+        }, 1000);
+      }
       if (flippedCards === total) {
         console.log("game over");
         $("#winner").append("<h1>Winner!</h1>");
