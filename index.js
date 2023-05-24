@@ -134,7 +134,7 @@ const setup = () => {
   });
 
   $("#game_grid").on("click", ".card", function() {
-    if (firstCard && secondCard || $(this).hasClass("match")) {
+    if (firstCard && secondCard || $(this).hasClass("match") || firstCardID === $(this).attr("id")) {
       return;
     }
     $(this).toggleClass("flip");
@@ -177,16 +177,6 @@ const setup = () => {
       }, 1000);
         console.log(firstCard);
         console.log(secondCard);
-      }
-      if (firstCard && secondCard) {
-        setTimeout(function () {
-            firstCard = null;
-            firstImg = null;
-            firstCardID = null;
-            secondCard = null;
-            secondImg = null;
-            secondCardID = null;
-        }, 1000);
       }
       if (flippedCards === total) {
         console.log("game over");
