@@ -130,11 +130,20 @@ const setup = () => {
 
         setTimeout(() => {
           unmatchedCards.removeClass("flip");
-        }, 1000);
+        }, 000);
   });
 
   $("#game_grid").on("click", ".card", function() {
     if (firstCard && secondCard || $(this).hasClass("match")) {
+      return;
+    }
+    if (firstCard == secondCard) {
+      firstCard = null;
+      firstImg = null;
+      firstCardID = null;
+      secondCard = null;
+      secondImg = null;
+      secondCardID = null;
       return;
     }
     $(this).toggleClass("flip");
